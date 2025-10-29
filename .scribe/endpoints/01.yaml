@@ -1,0 +1,285 @@
+name: Transactions
+description: 'Use this endpoint to deposit or withdraw funds from a user account.'
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/deposit
+    metadata:
+      custom: []
+      groupName: Transactions
+      groupDescription: 'Use this endpoint to deposit or withdraw funds from a user account.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Perform a single transaction (deposit or withdraw).'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      user_id:
+        custom: []
+        name: user_id
+        description: 'The ID of the user performing the transaction.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      type:
+        custom: []
+        name: type
+        description: 'The type of transaction. Must be either "deposit" or "withdraw".'
+        required: true
+        example: deposit
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      amount:
+        custom: []
+        name: amount
+        description: 'The amount to deposit or withdraw (up to 2 decimal places).'
+        required: true
+        example: 100.0
+        type: number
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      user_id: 1
+      type: deposit
+      amount: 100.0
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "message": "success"
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 400
+        content: |-
+          {
+            "error": "Incorrect Operation type"
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 409
+        content: |-
+          {
+            "error": "Operation denied. Insufficient balance."
+          }
+        headers: []
+        description: ''
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/withdraw
+    metadata:
+      custom: []
+      groupName: Transactions
+      groupDescription: 'Use this endpoint to deposit or withdraw funds from a user account.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Perform a single transaction (deposit or withdraw).'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      user_id:
+        custom: []
+        name: user_id
+        description: 'The ID of the user performing the transaction.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      type:
+        custom: []
+        name: type
+        description: 'The type of transaction. Must be either "deposit" or "withdraw".'
+        required: true
+        example: deposit
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      amount:
+        custom: []
+        name: amount
+        description: 'The amount to deposit or withdraw (up to 2 decimal places).'
+        required: true
+        example: 100.0
+        type: number
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      user_id: 1
+      type: deposit
+      amount: 100.0
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "message": "success"
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 400
+        content: |-
+          {
+            "error": "Incorrect Operation type"
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 409
+        content: |-
+          {
+            "error": "Operation denied. Insufficient balance."
+          }
+        headers: []
+        description: ''
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/transfer
+    metadata:
+      custom: []
+      groupName: Transactions
+      groupDescription: 'Transfers a specified amount from one user to another.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Transfer money between two users.'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      from_user_id:
+        custom: []
+        name: from_user_id
+        description: 'The ID of the user sending money.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      to_user_id:
+        custom: []
+        name: to_user_id
+        description: 'The ID of the user receiving money.'
+        required: true
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      amount:
+        custom: []
+        name: amount
+        description: 'The amount to transfer (up to 2 decimal places).'
+        required: true
+        example: 25.5
+        type: number
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      from_user_id: 1
+      to_user_id: 2
+      amount: 25.5
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "message": "success"
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 400
+        content: |-
+          {
+            "error": "Invalid request"
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 409
+        content: |-
+          {
+            "error": "Operation denied. Insufficient balance."
+          }
+        headers: []
+        description: ''
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
